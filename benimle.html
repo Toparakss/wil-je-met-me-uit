@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wil je met me uit?</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: pink;
+        margin-top: 100px;
+    }
+    button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    #nee {
+        position: absolute;
+    }
+    #container {
+        position: relative;
+        width: 300px;
+        height: 100px;
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+    <h1>Wil je met me uit? ❤️</h1>
+    <div id="container">
+        <button onclick="antwoord()" id="ja">Ja</button>
+        <button id="nee">Nee</button>
+    </div>
+
+    <script>
+        const nee = document.getElementById('nee');
+        const container = document.getElementById('container');
+
+        nee.style.top = '50px';
+        nee.style.left = '150px';
+
+        nee.addEventListener('mouseenter', () => {
+            const containerRect = container.getBoundingClientRect();
+            const maxX = containerRect.width - nee.offsetWidth;
+            const maxY = containerRect.height - nee.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            nee.style.left = randomX + 'px';
+            nee.style.top = randomY + 'px';
+        });
+
+        function antwoord() {
+            alert("Ik wist dat je ja zou zeggen 😍");
+        }
+    </script>
+</body>
+</html>
